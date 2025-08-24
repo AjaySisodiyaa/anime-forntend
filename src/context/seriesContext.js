@@ -9,7 +9,9 @@ export const SeriesContextProvider = ({ children }) => {
 
   const getAllSeries = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/series");
+      const res = await axios.get(
+        "https://anime-backend-5ok3.onrender.com/series"
+      );
       console.log("res", res.data);
       setSeries(res.data);
     } catch (error) {
@@ -18,7 +20,9 @@ export const SeriesContextProvider = ({ children }) => {
   };
   const getSingleSeries = async (seriesId) => {
     try {
-      const res = await axios.get(`http://localhost:4000/series/${seriesId}`);
+      const res = await axios.get(
+        `https://anime-backend-5ok3.onrender.com/series/${seriesId}`
+      );
       console.log("res", res.data);
       setSingleSeries(res.data);
     } catch (error) {
