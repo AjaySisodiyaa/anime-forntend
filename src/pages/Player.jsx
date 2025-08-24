@@ -22,18 +22,33 @@ const Player = () => {
       <div className="video-player">
         <h1>{singleSeries?.title}</h1>
         <h1>Episode {episode + 1}</h1>
-        <iframe
-          src={
-            singleSeries?.episode && singleSeries.episode[episode]
-              ? `https://short.icu/${singleSeries.episode[episode]}`
-              : ""
-          }
-          width="560"
-          height="315"
-          frameborder="0"
-          allowfullscreen=""
-          title="episode"
-        ></iframe>
+        {singleSeries._id === "68aade15210f44e770bd1867" ? (
+          <iframe
+            src={
+              singleSeries?.episode && singleSeries.episode[episode]
+                ? `https://short.icu/${singleSeries.episode[episode]}`
+                : ""
+            }
+            width="560"
+            height="315"
+            frameborder="0"
+            allowfullscreen=""
+            title="episode"
+          ></iframe>
+        ) : (
+          <iframe
+            src={
+              singleSeries?.episode && singleSeries.episode[episode]
+                ? singleSeries.episode[episode]
+                : ""
+            }
+            width="560"
+            height="315"
+            frameborder="0"
+            allowfullscreen=""
+            title="episode"
+          ></iframe>
+        )}
       </div>
 
       <div className="next-previous">
