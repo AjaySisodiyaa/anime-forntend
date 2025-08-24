@@ -4,7 +4,13 @@ import "./Navbar.css";
 const Navbar = () => {
   return (
     <div className="Navbar">
-      <h1 onClick={() => window.location.replace("/")}>Majelo</h1>
+      <div
+        onClick={() => window.location.replace("/")}
+        className="logo-container"
+      >
+        <img src="/logo.png" alt="" />
+        <h1>Majelo</h1>
+      </div>
     </div>
   );
 };

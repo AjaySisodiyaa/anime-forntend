@@ -7,6 +7,7 @@ export const SeriesContextProvider = ({ children }) => {
   const [series, setSeries] = useState([]);
   const [singleSeries, setSingleSeries] = useState([]);
 
+  // get all series
   const getAllSeries = async () => {
     try {
       const res = await axios.get(
@@ -18,6 +19,7 @@ export const SeriesContextProvider = ({ children }) => {
       console.error(error);
     }
   };
+  // get single series
   const getSingleSeries = async (seriesId) => {
     try {
       const res = await axios.get(

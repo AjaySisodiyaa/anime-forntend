@@ -1,0 +1,9 @@
+h1 {
+  color: yellow;
+  font-weight: 300;
+  font-size: 22px;
+}
+* {
+  text-decoration: none;
+  list-style: none;
+}
