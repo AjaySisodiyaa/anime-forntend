@@ -1,0 +1,40 @@
+.Player {
+  width: 100vw;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0b1d51, #725cad);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  gap: 50px;
+}
+iframe {
+  width: 70vw;
+  height: 70vh;
+}
+h1 {
+  color: yellow;
+}
+
+button {
+  padding: 10px;
+  background-color: #8ccdeb;
+  color: black;
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid #a03333;
+}
+
+.next-previous {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.next-previous button {
+  width: 100px;
+}
+.episode-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}

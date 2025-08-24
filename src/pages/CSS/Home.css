@@ -1,0 +1,12 @@
+.Home {
+  background: linear-gradient(180deg, #0b1d51, #725cad);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  /* grid-template-columns: ; */
+}
+/* .series-list {
+    display: grid;
+    } */

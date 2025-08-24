@@ -1,0 +1,6 @@
+.Navbar {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, #0b1d51);
+  border-bottom: 2px solid white;
+}
