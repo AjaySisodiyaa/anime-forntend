@@ -14,15 +14,19 @@ const Player = () => {
   useEffect(() => {
     getSingleSeries(seriesId);
     getAllSeries();
-  }, [seriesId]);
+
+    window.scrollTo({
+      top: 100,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [seriesId, episode]);
 
   return (
     <div className="Player">
       <AdsterraBanner />
 
       <div className="video-player">
-        <h1>{singleSeries?.title}</h1>
-        <h1>Episode {episode + 1}</h1>
         {singleSeries._id === "68aade15210f44e770bd1867" ? (
           <iframe
             src={
@@ -50,18 +54,22 @@ const Player = () => {
             title="episode"
           ></iframe>
         )}
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h1>{singleSeries?.title}</h1>
+          <h1>Episode {episode + 1}</h1>
+        </div>
       </div>
 
       <div className="next-previous">
         {episode > 0 ? (
-          <button onClick={() => setEpisode(episode - 1)}>Previous</button>
+          <button onClick={() => setEpisode(episode - 1)}>&lt; Previous</button>
         ) : (
           <></>
         )}
         {singleSeries?.episode?.length - 1 === episode ? (
           <></>
         ) : (
-          <button onClick={() => setEpisode(episode + 1)}>Next</button>
+          <button onClick={() => setEpisode(episode + 1)}>Next &gt;</button>
         )}
       </div>
 
