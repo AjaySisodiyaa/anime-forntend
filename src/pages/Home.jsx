@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSeriesContext } from "../context/seriesContext";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
 import "./CSS/Home.css";
+import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 
 const Home = () => {
   const { series, getAllSeries } = useSeriesContext();
@@ -14,6 +15,7 @@ const Home = () => {
 
   return (
     <div className="Home">
+      <AdsterraBanner />
       <h1>Series List</h1>
       <div className="series-list">
         <SeriesCard />

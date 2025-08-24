@@ -38,3 +38,15 @@ button {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
+@media (max-width: 700px) {
+  .Player {
+    padding-top: 20px;
+  }
+  .episode-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  iframe {
+    width: 100vw;
+    height: 40vh;
+  }
+}

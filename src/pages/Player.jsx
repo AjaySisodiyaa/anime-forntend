@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSeriesContext } from "../context/seriesContext";
 import "./CSS/Player.css";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
+import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 
 const Player = () => {
   const { getSingleSeries, singleSeries, series, getAllSeries } =
@@ -16,6 +17,8 @@ const Player = () => {
 
   return (
     <div className="Player">
+      <AdsterraBanner />
+
       <div className="video-player">
         <h1>{singleSeries?.title}</h1>
         <h1>Episode {episode + 1}</h1>
