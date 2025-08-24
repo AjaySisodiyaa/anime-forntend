@@ -8,7 +8,7 @@ const SeriesCard = () => {
   return (
     <div>
       {series.length === 0 ? (
-        <p>No series found</p>
+        <p>Loading... Please Wait</p>
       ) : (
         <ul className="series-card-list">
           {series.map((s, index) => (

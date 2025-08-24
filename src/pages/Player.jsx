@@ -10,6 +10,7 @@ const Player = () => {
     useSeriesContext();
   const [episode, setEpisode] = useState(0);
   const { seriesId } = useParams();
+  console.log("episode", episode);
   useEffect(() => {
     getSingleSeries(seriesId);
     getAllSeries();
@@ -52,8 +53,16 @@ const Player = () => {
       </div>
 
       <div className="next-previous">
-        <button onClick={() => setEpisode(episode - 1)}>Previous</button>
-        <button onClick={() => setEpisode(episode + 1)}>Next</button>
+        {episode > 0 ? (
+          <button onClick={() => setEpisode(episode - 1)}>Previous</button>
+        ) : (
+          <></>
+        )}
+        {singleSeries?.episode?.length - 1 === episode ? (
+          <></>
+        ) : (
+          <button onClick={() => setEpisode(episode + 1)}>Next</button>
+        )}
       </div>
 
       <div className="episode-list">
