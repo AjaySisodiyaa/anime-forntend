@@ -4,23 +4,27 @@ import { useSeriesContext } from "../context/seriesContext";
 import "./CSS/Player.css";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
+import MovieCard from "../components/MovieCard/MovieCard";
 
 const Player = () => {
-  const { getSingleSeries, singleSeries, series, getAllSeries } =
+  const { getSingleSeries, singleSeries, getSingleMovie, singleMovie } =
     useSeriesContext();
   const [episode, setEpisode] = useState(0);
-  const { seriesId } = useParams();
+  const { type, Id } = useParams();
   console.log("episode", episode);
   useEffect(() => {
-    getSingleSeries(seriesId);
-    getAllSeries();
-
+    if (type === "series") {
+      getSingleSeries(Id);
+    }
+    if (type === "movie") {
+      getSingleMovie(Id);
+    }
     window.scrollTo({
       top: 100,
       left: 0,
       behavior: "smooth",
     });
-  }, [seriesId, episode]);
+  }, [Id, episode]);
 
   return (
     <div className="Player">
@@ -43,9 +47,11 @@ const Player = () => {
         ) : (
           <iframe
             src={
-              singleSeries?.episode && singleSeries.episode[episode]
+              singleSeries?.episode &&
+              singleSeries.episode[episode] &&
+              type === "series"
                 ? singleSeries.episode[episode]
-                : ""
+                : singleMovie?.movie
             }
             width="560"
             height="315"
@@ -54,9 +60,9 @@ const Player = () => {
             title="episode"
           ></iframe>
         )}
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div className="player-info">
           <h1>{singleSeries?.title}</h1>
-          <h1>Episode {episode + 1}</h1>
+          <h3>Episode {episode + 1}</h3>
         </div>
       </div>
 
@@ -87,8 +93,10 @@ const Player = () => {
         ))}
       </div>
       <div className="Home">
-        <h1>Series List</h1>
         <div className="series-list">
+          <h1>Top Movies</h1>
+          <MovieCard />
+          <h1>Top Series</h1>
           <SeriesCard />
         </div>
       </div>

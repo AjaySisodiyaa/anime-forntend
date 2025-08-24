@@ -3,21 +3,21 @@ import { useSeriesContext } from "../context/seriesContext";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
 import "./CSS/Home.css";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
+import MovieCard from "../components/MovieCard/MovieCard";
 
 const Home = () => {
-  const { series, getAllSeries } = useSeriesContext();
+  // const { getAllSeries } = useSeriesContext();
 
-  useEffect(() => {
-    getAllSeries(); // ✅ actually call it
-  }, []); // ✅ empty deps so it runs once
-
-  console.log("series", series);
-
+  // useEffect(() => {
+  //   getAllSeries(); // ✅ actually call it
+  // }, []); //
   return (
     <div className="Home">
       <AdsterraBanner />
-      <h1>Series List</h1>
       <div className="series-list">
+        <h1>Popular Movies</h1>
+        <MovieCard />
+        <h1>Popular Series</h1>
         <SeriesCard />
       </div>
     </div>

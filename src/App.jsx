@@ -5,6 +5,8 @@ import Player from "./pages/Player";
 import { SeriesContextProvider } from "./context/seriesContext";
 import Navbar from "./components/Navbar/Navbar";
 import ScrollToTop from "./helpers/ScrollToTop";
+import Series from "./pages/Series";
+import Movie from "./pages/Movie";
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:seriesId" element={<Player />} />
+          <Route path="/:type/:Id" element={<Player />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/movies" element={<Movie />} />
         </Routes>
       </SeriesContextProvider>
     </div>

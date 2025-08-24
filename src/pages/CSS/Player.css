@@ -35,6 +35,15 @@ button {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
+.player-info h3 {
+  background-color: #d25d5d;
+  width: fit-content;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  color: yellow;
+}
 @media (max-width: 700px) {
   .Player {
     padding-top: 20px;
@@ -45,5 +54,8 @@ button {
   iframe {
     width: 100vw;
     height: 40vh;
+  }
+  .player-info {
+    padding: 0 15px;
   }
 }

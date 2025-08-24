@@ -35,7 +35,11 @@ const AdsterraBanner = () => {
         display: "flex",
         justifyContent: "center",
         width: "100vw",
+        height: "60px",
         overflowX: "scroll",
+        background: "#1a2a80",
+        padding: "0px",
+        margin: "0px",
       }}
       ref={adRef}
     ></div>

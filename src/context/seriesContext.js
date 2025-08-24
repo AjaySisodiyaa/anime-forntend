@@ -5,7 +5,9 @@ const SeriesContext = createContext();
 
 export const SeriesContextProvider = ({ children }) => {
   const [series, setSeries] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [singleSeries, setSingleSeries] = useState([]);
+  const [singleMovie, setSingleMovie] = useState([]);
 
   // get all series
   const getAllSeries = async () => {
@@ -13,20 +15,47 @@ export const SeriesContextProvider = ({ children }) => {
       const res = await axios.get(
         "https://anime-backend-5ok3.onrender.com/series"
       );
-      console.log("res", res.data);
+
       setSeries(res.data);
     } catch (error) {
       console.error(error);
     }
   };
+
   // get single series
   const getSingleSeries = async (seriesId) => {
     try {
       const res = await axios.get(
         `https://anime-backend-5ok3.onrender.com/series/${seriesId}`
       );
-      console.log("res", res.data);
+
       setSingleSeries(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // get all movies
+  const getAllMovies = async () => {
+    try {
+      const res = await axios.get(
+        "https://anime-backend-5ok3.onrender.com/movie"
+      );
+
+      setMovies(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // get single movie
+  const getSingleMovie = async (movieId) => {
+    try {
+      const res = await axios.get(
+        `https://anime-backend-5ok3.onrender.com/movie/${movieId}`
+      );
+
+      setSingleMovie(res.data);
     } catch (error) {
       console.error(error);
     }
@@ -34,7 +63,16 @@ export const SeriesContextProvider = ({ children }) => {
 
   return (
     <SeriesContext.Provider
-      value={{ series, getAllSeries, getSingleSeries, singleSeries }}
+      value={{
+        series,
+        getAllSeries,
+        getSingleSeries,
+        singleSeries,
+        getAllMovies,
+        getSingleMovie,
+        movies,
+        singleMovie,
+      }}
     >
       {children}
     </SeriesContext.Provider>

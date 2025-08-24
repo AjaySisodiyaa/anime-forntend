@@ -1,10 +1,10 @@
-.series-card-list {
+.movie-card-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding: 20px;
   gap: 20px;
 }
-.series-card-item {
+.movie-card-item {
   width: 300px;
   list-style: none;
   direction: none;
@@ -16,19 +16,19 @@
   background-color: #f5babb2c;
   padding: 10px;
 }
-.series-card-item img {
+.movie-card-item img {
   width: 300px;
   height: 180px;
   object-fit: cover;
   border: 1px solid yellow;
   border-radius: 20px;
 }
-.series-card-item h3 {
+.movie-card-item h3 {
   padding: 0 10px;
   text-decoration: none;
   color: white;
 }
-.series-card-item p {
+.movie-card-item p {
   text-align: center;
   border-radius: 10px;
   width: fit-content;
@@ -40,11 +40,11 @@
   margin-left: 10px;
   font-weight: 800;
 }
-.series-card-item {
+.movie-card-item {
   padding: 0 0 20px 0;
 }
 @media (max-width: 700px) {
-  .series-card-list {
+  .movie-card-list {
     display: grid;
     grid-template-columns: 1fr;
   }

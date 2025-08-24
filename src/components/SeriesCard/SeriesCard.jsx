@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { useSeriesContext } from "../../context/seriesContext";
 import "./SeriesCard.css";
+import { useEffect } from "react";
 
 const SeriesCard = () => {
-  const { series } = useSeriesContext();
+  const { series, getAllSeries } = useSeriesContext();
+
+  useEffect(() => {
+    getAllSeries();
+  }, []);
 
   return (
     <div>
@@ -12,13 +17,17 @@ const SeriesCard = () => {
       ) : (
         <ul className="series-card-list">
           {series.map((s, index) => (
-            <Link to={`/${s._id}`}>
-              <li key={index} className="series-card-item">
-                <img src={s.image} alt={s.title} width="150" />
-                <h3>{s.title}</h3>
-                <p>{s?.episode?.length}</p>
-              </li>
-            </Link>
+            // <Link to={`series/${s._id}`}>
+            <li
+              onClick={() => window.location.replace(`/series/${s._id}`)}
+              key={index}
+              className="series-card-item"
+            >
+              <img src={s.image} alt={s.title} width="150" />
+              <h3>{s.title}</h3>
+              <p>{s?.episode?.length}</p>
+            </li>
+            // </Link>
           ))}
         </ul>
       )}
