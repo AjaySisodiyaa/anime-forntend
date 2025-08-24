@@ -5,6 +5,7 @@
   gap: 20px;
 }
 .series-card-item {
+  width: 300px;
   list-style: none;
   direction: none;
   border-radius: 20px;
