@@ -55,6 +55,8 @@ const Player = () => {
           /> */}
 
         <div>
+          {console.log("singleSeries", singleSeries)}
+          {console.log("singleMovie", singleMovie)}
           <iframe
             src={
               singleSeries?.episode &&
@@ -69,6 +71,14 @@ const Player = () => {
             allowfullscreen=""
             title="episode"
           ></iframe>
+          {/* <iframe
+            src={"https://short.icu/u6eBrB34Jp"}
+            width="560"
+            height="315"
+            frameborder="0"
+            allowfullscreen=""
+            title="episode"
+          ></iframe> */}
         </div>
 
         <div className="player-info">

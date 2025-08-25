@@ -26,7 +26,7 @@ export const SeriesContextProvider = ({ children }) => {
   const getSingleSeries = async (seriesId) => {
     try {
       const res = await axios.get(
-        `https://anime-backend-5ok3.onrender.com/series/${seriesId}`
+        `https://anime-backend-5ok3.onrender.com/series/id/${seriesId}`
       );
 
       setSingleSeries(res.data);
@@ -52,7 +52,7 @@ export const SeriesContextProvider = ({ children }) => {
   const getSingleMovie = async (movieId) => {
     try {
       const res = await axios.get(
-        `https://anime-backend-5ok3.onrender.com/movie/${movieId}`
+        `https://anime-backend-5ok3.onrender.com/movie/id/${movieId}`
       );
 
       setSingleMovie(res.data);
