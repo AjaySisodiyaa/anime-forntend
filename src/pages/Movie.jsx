@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import MovieCard from "../components/MovieCard/MovieCard";
-import { useSeriesContext } from "../context/seriesContext";
+
 import "./CSS/Movie.css";
 
 const Movie = () => {

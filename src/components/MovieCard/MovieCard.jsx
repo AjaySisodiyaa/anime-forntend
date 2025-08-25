@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useSeriesContext } from "../../context/seriesContext";
 import "./MovieCard.css";
 import { useEffect } from "react";
@@ -8,6 +7,7 @@ const MovieCard = () => {
 
   useEffect(() => {
     getAllMovies();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

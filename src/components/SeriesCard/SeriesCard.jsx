@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useSeriesContext } from "../../context/seriesContext";
 import "./SeriesCard.css";
 import { useEffect } from "react";
@@ -8,6 +7,7 @@ const SeriesCard = () => {
 
   useEffect(() => {
     getAllSeries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -25,6 +25,8 @@ const Player = () => {
       left: 0,
       behavior: "smooth",
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Id, episode]);
 
   return (
