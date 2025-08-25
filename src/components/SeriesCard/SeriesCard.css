@@ -82,7 +82,7 @@
     width: 140px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 350px) {
   .series-card-list {
     grid-template-columns: 1fr;
   }

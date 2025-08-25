@@ -88,7 +88,7 @@
     padding: 0px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 350px) {
   .movie-card-list {
     grid-template-columns: 1fr;
   }
