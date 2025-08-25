@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
-import { useSeriesContext } from "../context/seriesContext";
 
 const Series = () => {
   return (

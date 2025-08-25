@@ -43,6 +43,10 @@
 .movie-card-item {
   padding: 0 0 20px 0;
 }
+.movie-card-item h4 {
+  padding: 0 10px;
+  color: white;
+}
 @media (max-width: 700px) {
   .movie-card-list {
     display: grid;

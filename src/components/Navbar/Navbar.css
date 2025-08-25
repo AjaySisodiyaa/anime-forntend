@@ -6,10 +6,16 @@
 }
 .logo-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-container h1 {
+  font-weight: 700;
+  color: yellow;
 }
 .logo-container img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: none;
 }
 .links {
@@ -27,4 +33,18 @@
 .nav-link:hover {
   background-color: gray;
   border-radius: 10px;
+}
+
+@keyframes pulse {
+  from {
+    text-shadow: 0 0 2px #ff0080, 0 0 2px #ff0080, 0 0 2px #ff0080;
+  }
+  to {
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+  }
+}
+
+.glow-animate {
+  color: #fff;
+  animation: pulse 1.5s infinite alternate;
 }

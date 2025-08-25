@@ -82,21 +82,21 @@ const Player = () => {
           </div>
         )}
         <div className="player-info">
-          <h1>{singleSeries?.title}</h1>
-          <h3>Episode {episode + 1}</h3>
+          <h1>{singleSeries?.title || singleMovie?.title}</h1>
+          {type === "series" && <h3>Episode {episode + 1}</h3>}
         </div>
       </div>
 
       <div className="next-previous">
-        {episode > 0 ? (
+        {episode > 0 && type === "series" ? (
           <button onClick={() => setEpisode(episode - 1)}>&lt; Previous</button>
         ) : (
           <></>
         )}
-        {singleSeries?.episode?.length - 1 === episode ? (
-          <></>
-        ) : (
+        {singleSeries?.episode?.length > episode && type === "series" ? (
           <button onClick={() => setEpisode(episode + 1)}>Next &gt;</button>
+        ) : (
+          <></>
         )}
       </div>
 
