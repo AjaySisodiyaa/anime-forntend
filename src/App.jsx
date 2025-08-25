@@ -7,19 +7,22 @@ import Navbar from "./components/Navbar/Navbar";
 import ScrollToTop from "./helpers/ScrollToTop";
 import Series from "./pages/Series";
 import Movie from "./pages/Movie";
+import { HeadProvider } from "react-head";
 
 function App() {
   return (
     <div className="App">
       <SeriesContextProvider>
-        <ScrollToTop />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/:type/:Id" element={<Player />} />
-          <Route path="/series" element={<Series />} />
-          <Route path="/movies" element={<Movie />} />
-        </Routes>
+        <HeadProvider>
+          <ScrollToTop />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:type/:Id" element={<Player />} />
+            <Route path="/series" element={<Series />} />
+            <Route path="/movies" element={<Movie />} />
+          </Routes>
+        </HeadProvider>
       </SeriesContextProvider>
     </div>
   );

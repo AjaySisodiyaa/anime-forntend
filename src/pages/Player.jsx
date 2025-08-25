@@ -5,6 +5,7 @@ import "./CSS/Player.css";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import MovieCard from "../components/MovieCard/MovieCard";
+import { Title, Meta, Link } from "react-head";
 
 const Player = () => {
   const { getSingleSeries, singleSeries, getSingleMovie, singleMovie } =
@@ -31,34 +32,52 @@ const Player = () => {
       <AdsterraBanner />
 
       <div className="video-player">
+        <Title>{singleSeries.title || singleMovie.title} | Majelo</Title>
+        <Meta
+          name="description"
+          content={singleSeries.title || singleMovie.title}
+        />
+        <Meta
+          name="keywords"
+          content={singleSeries.title || singleMovie.title}
+        />
+
         {singleSeries._id === "68aade15210f44e770bd1867" ? (
-          <iframe
-            src={
-              singleSeries?.episode && singleSeries.episode[episode]
-                ? `https://short.icu/${singleSeries.episode[episode]}`
-                : ""
-            }
-            width="560"
-            height="315"
-            frameborder="0"
-            allowfullscreen=""
-            title="episode"
-          ></iframe>
+          <div>
+            <iframe
+              src={
+                singleSeries?.episode && singleSeries.episode[episode]
+                  ? `https://short.icu/${singleSeries.episode[episode]}`
+                  : ""
+              }
+              width="560"
+              height="315"
+              frameborder="0"
+              allowfullscreen=""
+              title="episode"
+            ></iframe>
+          </div>
         ) : (
-          <iframe
-            src={
-              singleSeries?.episode &&
-              singleSeries.episode[episode] &&
-              type === "series"
-                ? singleSeries.episode[episode]
-                : singleMovie?.movie
-            }
-            width="560"
-            height="315"
-            frameborder="0"
-            allowfullscreen=""
-            title="episode"
-          ></iframe>
+          <div>
+            <Link
+              rel="canonical"
+              href={`https://majelo.onrender.com/${type}/${Id}`}
+            />
+            <iframe
+              src={
+                singleSeries?.episode &&
+                singleSeries.episode[episode] &&
+                type === "series"
+                  ? singleSeries.episode[episode]
+                  : singleMovie?.movie
+              }
+              width="560"
+              height="315"
+              frameborder="0"
+              allowfullscreen=""
+              title="episode"
+            ></iframe>
+          </div>
         )}
         <div className="player-info">
           <h1>{singleSeries?.title}</h1>
