@@ -34,17 +34,3 @@
   background-color: gray;
   border-radius: 10px;
 }
-
-@keyframes pulse {
-  from {
-    text-shadow: 0 0 2px #ff0080, 0 0 2px #ff0080, 0 0 2px #ff0080;
-  }
-  to {
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-  }
-}
-
-.glow-animate {
-  color: #fff;
-  animation: pulse 1.5s infinite alternate;
-}
