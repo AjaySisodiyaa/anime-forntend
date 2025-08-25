@@ -23,7 +23,7 @@ const MovieCard = () => {
               key={index}
               className="movie-card-item"
             >
-              <img src={s.image} alt={s.title} />
+              <img className="poster" src={s.image} alt={s.title} />
               <h3>{s.title}</h3>
               <h4 className="glow-animate">New</h4>
             </li>

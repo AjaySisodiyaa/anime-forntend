@@ -38,6 +38,10 @@ button {
 .player-info {
   width: 70vw;
 }
+.player-info h1 {
+  color: white;
+  font-weight: 900;
+}
 .player-info h3 {
   background-color: #d25d5d;
   width: fit-content;
