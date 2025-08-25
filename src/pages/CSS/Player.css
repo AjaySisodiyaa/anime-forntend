@@ -35,6 +35,9 @@ button {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px;
 }
+.player-info {
+  width: 70vw;
+}
 .player-info h3 {
   background-color: #d25d5d;
   width: fit-content;
@@ -44,6 +47,11 @@ button {
   font-weight: 700;
   color: yellow;
 }
+.description {
+  color: yellow;
+  width: 100%;
+}
+
 @media (max-width: 700px) {
   .Player {
     padding-top: 20px;
@@ -57,5 +65,6 @@ button {
   }
   .player-info {
     padding: 0 15px;
+    width: 100%;
   }
 }

@@ -6,6 +6,7 @@ import SeriesCard from "../components/SeriesCard/SeriesCard";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import MovieCard from "../components/MovieCard/MovieCard";
 import { Title, Meta, Link } from "react-head";
+import SEO from "../helpers/SEO";
 
 const Player = () => {
   const { getSingleSeries, singleSeries, getSingleMovie, singleMovie } =
@@ -32,58 +33,51 @@ const Player = () => {
   return (
     <div className="Player">
       <AdsterraBanner />
-
+      <SEO singleSeries={singleSeries} singleMovie={singleMovie} />
       <div className="video-player">
-        <Title>{singleSeries.title || singleMovie.title} | Majelo</Title>
+        {/* <Title>{singleSeries.title || singleMovie.title} | Majelo</Title>
+
         <Meta
           name="description"
-          content={singleSeries.title || singleMovie.title}
+          content={singleSeries.description || singleMovie.description}
         />
         <Meta
           name="keywords"
-          content={singleSeries.title || singleMovie.title}
-        />
+          content={
+            (singleSeries?.tags && singleSeries.tags.length > 0
+              ? singleSeries.tags.join(",")
+              : singleMovie?.tags?.join(",")) || ""
+          }
+        /> */}
+        {/* <Link
+            rel="canonical"
+            href={`https://majelo.onrender.com/${type}/${Id}`}
+          /> */}
 
-        {singleSeries._id === "68aade15210f44e770bd1867" ? (
-          <div>
-            <iframe
-              src={
-                singleSeries?.episode && singleSeries.episode[episode]
-                  ? `https://short.icu/${singleSeries.episode[episode]}`
-                  : ""
-              }
-              width="560"
-              height="315"
-              frameborder="0"
-              allowfullscreen=""
-              title="episode"
-            ></iframe>
-          </div>
-        ) : (
-          <div>
-            <Link
-              rel="canonical"
-              href={`https://majelo.onrender.com/${type}/${Id}`}
-            />
-            <iframe
-              src={
-                singleSeries?.episode &&
-                singleSeries.episode[episode] &&
-                type === "series"
-                  ? singleSeries.episode[episode]
-                  : singleMovie?.movie
-              }
-              width="560"
-              height="315"
-              frameborder="0"
-              allowfullscreen=""
-              title="episode"
-            ></iframe>
-          </div>
-        )}
+        <div>
+          <iframe
+            src={
+              singleSeries?.episode &&
+              singleSeries.episode[episode] &&
+              type === "series"
+                ? singleSeries.episode[episode]
+                : singleMovie?.movie
+            }
+            width="560"
+            height="315"
+            frameborder="0"
+            allowfullscreen=""
+            title="episode"
+          ></iframe>
+        </div>
+
         <div className="player-info">
           <h1>{singleSeries?.title || singleMovie?.title}</h1>
           {type === "series" && <h3>Episode {episode + 1}</h3>}
+          <p className="description">
+            {singleSeries?.description || singleMovie?.description}
+          </p>
+          {/* {singleSeries.slug} */}
         </div>
       </div>
 
@@ -93,7 +87,7 @@ const Player = () => {
         ) : (
           <></>
         )}
-        {singleSeries?.episode?.length > episode && type === "series" ? (
+        {singleSeries?.episode?.length - 1 > episode && type === "series" ? (
           <button onClick={() => setEpisode(episode + 1)}>Next &gt;</button>
         ) : (
           <></>
