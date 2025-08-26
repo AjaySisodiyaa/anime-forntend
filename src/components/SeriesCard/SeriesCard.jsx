@@ -30,32 +30,28 @@ const SeriesCard = ({ Stype }) => {
         <ul className="series-card-list">
           {Stype === "movie"
             ? (searchMovies || movies).map((s, index) => (
-                // <Link to={`series/${s._id}`}>
                 <li
                   onClick={() => window.location.replace(`/series/${s.slug}`)}
                   key={index}
                   className="series-card-item"
                 >
-                  <img src={s.image} alt={s.title} width="150" />
+                  <img src={s.image} loading="lazy" alt={s.title} width="150" />
                   <h3>{s.title}</h3>
                   <h4 style={{ padding: "0 10px" }} className="glow-animate">
                     New
                   </h4>
                 </li>
-                // </Link>
               ))
             : (searchSeries || series).map((s, index) => (
-                // <Link to={`series/${s._id}`}>
                 <li
                   onClick={() => window.location.replace(`/movie/${s.slug}`)}
                   key={index}
                   className="series-card-item"
                 >
-                  <img src={s.image} alt={s.title} width="150" />
+                  <img src={s.image} loading="lazy" alt={s.title} width="150" />
                   <h3>{s.title}</h3>
                   <p>{s?.episode?.length}</p>
                 </li>
-                // </Link>
               ))}
         </ul>
       )}
