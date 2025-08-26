@@ -37,13 +37,31 @@ const Navbar = () => {
             Search
           </button>
         </form>
-        <Link className="mobiel-nav-link" to="/">
+        <Link
+          onClick={() =>
+            document.querySelector(".mobiel-links").classList.toggle("hide")
+          }
+          className="mobiel-nav-link"
+          to="/"
+        >
           Home
         </Link>
-        <Link className="mobiel-nav-link" to="/series">
+        <Link
+          onClick={() =>
+            document.querySelector(".mobiel-links").classList.toggle("hide")
+          }
+          className="mobiel-nav-link"
+          to="/series"
+        >
           Series
         </Link>
-        <Link className="mobiel-nav-link" to="/movies">
+        <Link
+          onClick={() =>
+            document.querySelector(".mobiel-links").classList.toggle("hide")
+          }
+          className="mobiel-nav-link"
+          to="/movies"
+        >
           Movies
         </Link>
       </div>
