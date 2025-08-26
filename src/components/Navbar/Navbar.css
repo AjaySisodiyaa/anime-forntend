@@ -137,17 +137,20 @@
   .hamburger:hover {
     background-color: gray;
   }
+
   .hamburger {
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
+    user-select: none;
   }
   .line {
     background-color: yellow;
     width: 30px;
     height: 3px;
     border-radius: 10px;
+    user-select: none;
   }
   .hide {
     display: none;
