@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "curl -o public/sitemap.xml https://anime-backend-5ok3.onrender.com/sitemap.xml",
+    "prebuild": "node scripts/generate-sitemap.js",
     "build": "react-scripts build && react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
