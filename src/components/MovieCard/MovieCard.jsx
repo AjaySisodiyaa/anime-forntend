@@ -19,7 +19,7 @@ const MovieCard = () => {
           {movies.map((s, index) => (
             // <Link to={`/movie/${s._id}`}>
             <li
-              onClick={() => window.location.replace(`/movie/${s._id}`)}
+              onClick={() => window.location.replace(`/movie/${s.slug}`)}
               key={index}
               className="movie-card-item"
             >

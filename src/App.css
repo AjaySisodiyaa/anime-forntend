@@ -21,3 +21,7 @@ h1 {
   color: #fff;
   animation: pulse 1.5s infinite alternate;
 }
+.pages {
+  padding-top: 60px;
+  background: linear-gradient(180deg, #0b1d51, #725cad);
+}

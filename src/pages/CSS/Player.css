@@ -1,7 +1,6 @@
 .Player {
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(180deg, #0b1d51, #725cad);
   display: flex;
   flex-direction: column;
   align-items: center;

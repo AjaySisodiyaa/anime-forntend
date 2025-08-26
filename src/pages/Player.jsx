@@ -5,22 +5,21 @@ import "./CSS/Player.css";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import MovieCard from "../components/MovieCard/MovieCard";
-import { Title, Meta, Link } from "react-head";
 import SEO from "../helpers/SEO";
 
 const Player = () => {
   const { getSingleSeries, singleSeries, getSingleMovie, singleMovie } =
     useSeriesContext();
   const [episode, setEpisode] = useState(0);
-  const { type, Id } = useParams();
+  const { type, slug } = useParams();
   console.log("episode", episode);
   useEffect(() => {
-    if (type === "series") {
-      getSingleSeries(Id);
-    }
-    if (type === "movie") {
-      getSingleMovie(Id);
-    }
+    // if (type) {
+    getSingleMovie(slug);
+    // } else {
+    getSingleSeries(slug);
+    // }
+
     window.scrollTo({
       top: 100,
       left: 0,
@@ -28,40 +27,18 @@ const Player = () => {
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Id, episode]);
+  }, [slug, episode]);
 
   return (
     <div className="Player">
       <AdsterraBanner />
+      {console.log(singleSeries, "singleSeries-------->")}
       <SEO singleSeries={singleSeries} singleMovie={singleMovie} />
       <div className="video-player">
-        {/* <Title>{singleSeries.title || singleMovie.title} | Majelo</Title>
-
-        <Meta
-          name="description"
-          content={singleSeries.description || singleMovie.description}
-        />
-        <Meta
-          name="keywords"
-          content={
-            (singleSeries?.tags && singleSeries.tags.length > 0
-              ? singleSeries.tags.join(",")
-              : singleMovie?.tags?.join(",")) || ""
-          }
-        /> */}
-        {/* <Link
-            rel="canonical"
-            href={`https://majelo.onrender.com/${type}/${Id}`}
-          /> */}
-
         <div>
-          {console.log("singleSeries", singleSeries)}
-          {console.log("singleMovie", singleMovie)}
           <iframe
             src={
-              singleSeries?.episode &&
-              singleSeries.episode[episode] &&
-              type === "series"
+              singleSeries?.episode && singleSeries.episode[episode]
                 ? singleSeries.episode[episode]
                 : singleMovie?.movie
             }
@@ -71,14 +48,6 @@ const Player = () => {
             allowfullscreen=""
             title="episode"
           ></iframe>
-          {/* <iframe
-            src={"https://short.icu/u6eBrB34Jp"}
-            width="560"
-            height="315"
-            frameborder="0"
-            allowfullscreen=""
-            title="episode"
-          ></iframe> */}
         </div>
 
         <div className="player-info">
@@ -87,7 +56,6 @@ const Player = () => {
           <p className="description">
             {singleSeries?.description || singleMovie?.description}
           </p>
-          {/* {singleSeries.slug} */}
         </div>
       </div>
 
