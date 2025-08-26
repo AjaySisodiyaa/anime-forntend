@@ -2,6 +2,5 @@
 
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
 Allow: /
-Sitemap: https://anime-backend-5ok3.onrender.com/sitemap.xml
+Sitemap: https://majelo.onrender.com/sitemap.xml
