@@ -65,7 +65,7 @@ const Home = () => {
           </button>
         </div>
         <AdsterraBanner />
-        <h1>Resend Series</h1>
+        <h1>Resent Series</h1>
         <SeriesCard series={series?.slice(0, 10)} Stype="series" />
         <div className="loadmore-container">
           <button
