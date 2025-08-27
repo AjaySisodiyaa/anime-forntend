@@ -69,9 +69,6 @@
   margin-left: 0 10px;
   font-weight: 800;
 }
-.series-card-item {
-  /* padding: 0 0 20px 0; */
-}
 
 @media (max-width: 1400px) {
   .series-card-list {

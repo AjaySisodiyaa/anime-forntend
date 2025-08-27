@@ -105,42 +105,57 @@ export const SeriesContextProvider = ({ children }) => {
 
   const updateSeriesViews = async (id) => {
     try {
+      setLoading(true);
       const res = await axios.post(
         `https://anime-backend-5ok3.onrender.com/series/${id}/watch`
       );
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
   const UpdateMovieViews = async (id) => {
     try {
+      setLoading(true);
+
       const res = await axios.post(
         `https://anime-backend-5ok3.onrender.com/movie/${id}/watch`
       );
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
   const getPopularMovies = async () => {
     try {
+      setLoading(true);
+
       const res = await axios.get(
         "https://anime-backend-5ok3.onrender.com/movie/popular"
       );
 
       setPopularMovies(res.data);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
   const getPopularSeries = async () => {
     try {
+      setLoading(true);
+
       const res = await axios.get(
         "https://anime-backend-5ok3.onrender.com/series/popular"
       );
 
       setPopularSeries(res.data);
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 

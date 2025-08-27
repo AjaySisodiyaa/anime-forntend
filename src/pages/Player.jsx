@@ -4,8 +4,8 @@ import { useSeriesContext } from "../context/seriesContext";
 import "./CSS/Player.css";
 import SeriesCard from "../components/SeriesCard/SeriesCard";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
-import MovieCard from "../components/MovieCard/MovieCard";
 import SEO from "../helpers/SEO";
+import Loading from "../components/Loaidng/Loading";
 
 const Player = () => {
   const {
@@ -59,7 +59,13 @@ const Player = () => {
 
         <div className="player-info" style={{}}>
           {/* <h1>{singleSeries?.title || singleMovie?.title}</h1> */}
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "5px",
+            }}
+          >
             {singleSeries?.episode && <h3>Episode {episode + 1}</h3>}
             <div className="next-previous">
               {episode > 0 ? (

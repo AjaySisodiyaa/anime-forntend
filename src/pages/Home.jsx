@@ -3,6 +3,7 @@ import "./CSS/Home.css";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import { useSeriesContext } from "../context/seriesContext";
 import { useEffect } from "react";
+import Loading from "../components/Loaidng/Loading";
 
 const Home = () => {
   const {
@@ -13,6 +14,7 @@ const Home = () => {
     getPopularSeries,
     popularMovies,
     popularSeries,
+    loading,
   } = useSeriesContext();
 
   useEffect(() => {
@@ -21,7 +23,9 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="Home">
       <div className="series-list">
         <form className="mobile-search desk-hide" onSubmit={handleSearch}>

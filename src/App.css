@@ -29,6 +29,7 @@ h1 {
 .desk-hide {
   display: none;
 }
+
 @media (max-width: 700px) {
   .pages {
     padding-top: 40px;

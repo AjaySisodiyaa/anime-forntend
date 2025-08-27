@@ -5,7 +5,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #333333c0;
-  margin-top: 60px;
+  background: linear-gradient(180deg, #725cad, #0b1d51);
+
   z-index: 10;
 }

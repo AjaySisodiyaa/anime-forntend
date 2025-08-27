@@ -18,13 +18,15 @@ function App() {
       <HeadProvider>
         <ScrollToTop />
         <Navbar />
-        {loading && <Loading />}
+        {/* {loading && <Loading />} */}
+
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:type/:slug" element={<Player />} />
             <Route path="/series" element={<Series />} />
             <Route path="/movies" element={<Movie />} />
+
             <Route path="/search" element={<Search />} />
           </Routes>
         </div>

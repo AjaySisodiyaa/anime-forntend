@@ -5,9 +5,10 @@ import SeriesCard from "../components/SeriesCard/SeriesCard";
 import { useSeriesContext } from "../context/seriesContext";
 
 import "./CSS/Movie.css";
+import Loading from "../components/Loaidng/Loading";
 
 const Movie = () => {
-  const { movies, getAllMovies } = useSeriesContext();
+  const { movies, getAllMovies, loading } = useSeriesContext();
   useEffect(() => {
     getAllMovies();
 
@@ -17,7 +18,9 @@ const Movie = () => {
   useEffect(() => {
     setType("movie");
   }, [setType]);
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <div className="movie">
       <div className="movie-container">
         <h1>Movie List</h1>
