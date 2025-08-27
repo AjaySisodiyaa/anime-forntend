@@ -7,6 +7,12 @@ import { useSeriesContext } from "../context/seriesContext";
 import "./CSS/Movie.css";
 
 const Movie = () => {
+  const { movies, getAllMovies } = useSeriesContext();
+  useEffect(() => {
+    getAllMovies();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const { setType } = useSeriesContext();
   useEffect(() => {
     setType("movie");
@@ -14,10 +20,10 @@ const Movie = () => {
   return (
     <div className="movie">
       <div className="movie-container">
-        <AdsterraBanner />
         <h1>Movie List</h1>
         <div className="movie-list">
-          <SeriesCard Stype="movie" />
+          <SeriesCard Stype="movie" movies={movies} />
+          <AdsterraBanner />
         </div>
       </div>
     </div>

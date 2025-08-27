@@ -1,0 +1,11 @@
+.loading {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #333333c0;
+  margin-top: 60px;
+  z-index: 10;
+}

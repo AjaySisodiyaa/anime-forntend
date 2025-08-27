@@ -8,17 +8,24 @@ import MovieCard from "../components/MovieCard/MovieCard";
 import SEO from "../helpers/SEO";
 
 const Player = () => {
-  const { getSingleSeries, singleSeries, getSingleMovie, singleMovie } =
-    useSeriesContext();
+  const {
+    getSingleSeries,
+    singleSeries,
+    getSingleMovie,
+    singleMovie,
+    movies,
+    series,
+    getAllSeries,
+    getAllMovies,
+  } = useSeriesContext();
   const [episode, setEpisode] = useState(0);
-  const { type, slug } = useParams();
+  const { slug } = useParams();
   console.log("episode", episode);
   useEffect(() => {
-    // if (type) {
     getSingleMovie(slug);
-    // } else {
     getSingleSeries(slug);
-    // }
+    getAllMovies();
+    getAllSeries();
 
     window.scrollTo({
       top: 100,
@@ -34,7 +41,7 @@ const Player = () => {
       {console.log(singleSeries, "singleSeries-------->")}
       <SEO singleSeries={singleSeries} singleMovie={singleMovie} />
       <div className="video-player">
-        <div>
+        <div style={{ backgroundColor: "black" }}>
           <iframe
             src={
               singleSeries?.episode && singleSeries.episode[episode]
@@ -103,9 +110,9 @@ const Player = () => {
       <div className="Home">
         <div className="series-list">
           <h1>Top Movies</h1>
-          <MovieCard />
+          <SeriesCard Stype="movie" movies={movies} />
           <h1>Top Series</h1>
-          <SeriesCard />
+          <SeriesCard series={series} Stype="series" />
         </div>
       </div>
     </div>

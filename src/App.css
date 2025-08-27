@@ -23,10 +23,16 @@ h1 {
 }
 .pages {
   padding-top: 60px;
-  background: linear-gradient(180deg, #0b1d51, #725cad);
+  background: linear-gradient(180deg, #725cad, #0b1d51);
+}
+.desk-hide {
+  display: none;
 }
 @media (max-width: 700px) {
   .pages {
     padding-top: 40px;
+  }
+  .desk-hide {
+    display: flex;
   }
 }

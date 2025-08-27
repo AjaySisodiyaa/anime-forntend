@@ -4,17 +4,18 @@ import SeriesCard from "../components/SeriesCard/SeriesCard";
 import { useSeriesContext } from "../context/seriesContext";
 
 const Series = () => {
-  const { setType } = useSeriesContext();
+  const { series, getAllSeries } = useSeriesContext();
   useEffect(() => {
-    setType("series");
-  }, [setType]);
+    getAllSeries();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="series">
       <div className="Home">
-        <AdsterraBanner />
         <h1>Series List</h1>
         <div className="series-list">
-          <SeriesCard Stype="series" />
+          <SeriesCard Stype="series" series={series} />
+          <AdsterraBanner />
         </div>
       </div>
     </div>

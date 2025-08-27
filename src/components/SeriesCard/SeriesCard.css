@@ -6,6 +6,7 @@
 }
 .series-card-item {
   width: 260px;
+  min-height: 350px;
   list-style: none;
   direction: none;
   border-radius: 20px;

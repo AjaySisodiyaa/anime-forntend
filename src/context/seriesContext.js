@@ -13,15 +13,19 @@ export const SeriesContextProvider = ({ children }) => {
   const [results, setResults] = useState({ movies: [], series: [] });
   const [type, setType] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   // get all series
   const getAllSeries = async () => {
     try {
+      setLoading(true);
       const res = await axios.get(
         "https://anime-backend-5ok3.onrender.com/series"
       );
       setSeries(res.data);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
@@ -29,6 +33,8 @@ export const SeriesContextProvider = ({ children }) => {
   // get single series
   const getSingleSeries = async (seriesSearch) => {
     try {
+      setLoading(true);
+
       console.log(seriesSearch, "seriesSearch------>");
       const res = await axios.get(
         `https://anime-backend-5ok3.onrender.com/series/${seriesSearch}`
@@ -36,7 +42,10 @@ export const SeriesContextProvider = ({ children }) => {
       console.log(res.data, "res.data");
 
       setSingleSeries(res.data);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+
       console.error(error);
     }
   };
@@ -44,11 +53,15 @@ export const SeriesContextProvider = ({ children }) => {
   // get all movies
   const getAllMovies = async () => {
     try {
+      setLoading(true);
+
       const res = await axios.get(
         "https://anime-backend-5ok3.onrender.com/movie"
       );
       setMovies(res.data);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
@@ -56,12 +69,15 @@ export const SeriesContextProvider = ({ children }) => {
   // get single movie
   const getSingleMovie = async (movieSearch) => {
     try {
+      setLoading(true);
       const res = await axios.get(
         `https://anime-backend-5ok3.onrender.com/movie/${movieSearch}`
       );
 
       setSingleMovie(res.data);
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
       console.error(error);
     }
   };
@@ -69,15 +85,22 @@ export const SeriesContextProvider = ({ children }) => {
   //Global Searching
 
   const handleSearch = async (e) => {
-    e.preventDefault();
-    navigate("/search");
-    const { data } = await axios.get(
-      `https://anime-backend-5ok3.onrender.com/search/${query}`
-    );
-    setResults({
-      movies: data.movies || [], // ✅ fallback to empty array
-      series: data.series || [],
-    });
+    try {
+      setLoading(true);
+      e.preventDefault();
+      navigate("/search");
+      const { data } = await axios.get(
+        `https://anime-backend-5ok3.onrender.com/search/${query}`
+      );
+      setResults({
+        movies: data.movies || [], // ✅ fallback to empty array
+        series: data.series || [],
+      });
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.error(error);
+    }
   };
 
   return (
@@ -98,6 +121,8 @@ export const SeriesContextProvider = ({ children }) => {
         setResults,
         type,
         setType,
+        setLoading,
+        loading,
       }}
     >
       {children}
