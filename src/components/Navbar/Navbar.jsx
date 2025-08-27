@@ -18,7 +18,12 @@ const Navbar = () => {
         <div className="line"></div>
         <div className="line"></div>
       </div>
-      <div className="mobiel-links hide">
+      <div
+        onClick={() =>
+          document.querySelector(".mobiel-links").classList.toggle("hide")
+        }
+        className="mobiel-links hide"
+      >
         <form className="mobile-search" onSubmit={handleSearch}>
           <input
             type="text"
@@ -26,42 +31,21 @@ const Navbar = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="mobile-search-input"
-          />
-          <button
             onClick={() =>
               document.querySelector(".mobiel-links").classList.toggle("hide")
             }
-            type="submit"
-            className="mobile-search-button"
-          >
+          />
+          <button type="submit" className="mobile-search-button">
             Search
           </button>
         </form>
-        <Link
-          onClick={() =>
-            document.querySelector(".mobiel-links").classList.toggle("hide")
-          }
-          className="mobiel-nav-link"
-          to="/"
-        >
+        <Link className="mobiel-nav-link" to="/">
           Home
         </Link>
-        <Link
-          onClick={() =>
-            document.querySelector(".mobiel-links").classList.toggle("hide")
-          }
-          className="mobiel-nav-link"
-          to="/series"
-        >
+        <Link className="mobiel-nav-link" to="/series">
           Series
         </Link>
-        <Link
-          onClick={() =>
-            document.querySelector(".mobiel-links").classList.toggle("hide")
-          }
-          className="mobiel-nav-link"
-          to="/movies"
-        >
+        <Link className="mobiel-nav-link" to="/movies">
           Movies
         </Link>
       </div>

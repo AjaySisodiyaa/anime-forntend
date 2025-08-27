@@ -31,7 +31,6 @@ const Player = () => {
 
   return (
     <div className="Player">
-      <AdsterraBanner />
       {console.log(singleSeries, "singleSeries-------->")}
       <SEO singleSeries={singleSeries} singleMovie={singleMovie} />
       <div className="video-player">
@@ -50,26 +49,28 @@ const Player = () => {
           ></iframe>
         </div>
 
-        <div className="player-info">
+        <div className="player-info" style={{}}>
           <h1>{singleSeries?.title || singleMovie?.title}</h1>
-          {type === "series" && <h3>Episode {episode + 1}</h3>}
-          <p className="description">
-            {singleSeries?.description || singleMovie?.description}
-          </p>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            {singleSeries?.episode && <h3>Episode {episode + 1}</h3>}
+            <div className="next-previous">
+              {episode > 0 ? (
+                <button onClick={() => setEpisode(episode - 1)}>
+                  &lt; Previous
+                </button>
+              ) : (
+                <></>
+              )}
+              {singleSeries?.episode?.length - 1 > episode ? (
+                <button onClick={() => setEpisode(episode + 1)}>
+                  Next &gt;
+                </button>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="next-previous">
-        {episode > 0 && type === "series" ? (
-          <button onClick={() => setEpisode(episode - 1)}>&lt; Previous</button>
-        ) : (
-          <></>
-        )}
-        {singleSeries?.episode?.length - 1 > episode && type === "series" ? (
-          <button onClick={() => setEpisode(episode + 1)}>Next &gt;</button>
-        ) : (
-          <></>
-        )}
       </div>
 
       <div className="episode-list">
@@ -84,6 +85,20 @@ const Player = () => {
             </button>
           </div>
         ))}
+      </div>
+      <AdsterraBanner />
+      <div className="poster-container">
+        <img
+          className="poster"
+          src={singleSeries?.image || singleMovie?.image}
+          alt=""
+        />
+        <div className="player-info">
+          <h1>{singleSeries?.title || singleMovie?.title}</h1>
+          <p className="description">
+            {singleSeries?.description || singleMovie?.description}
+          </p>
+        </div>
       </div>
       <div className="Home">
         <div className="series-list">

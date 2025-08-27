@@ -7,6 +7,7 @@ const SeriesCard = ({ Stype }) => {
   const { movies, series, getAllSeries, getAllMovies, results } =
     useSeriesContext();
   const location = useLocation();
+  let counter = 5;
 
   useEffect(() => {
     if (Stype === "movie") {
@@ -36,10 +37,12 @@ const SeriesCard = ({ Stype }) => {
                   className="series-card-item"
                 >
                   <img src={s.image} loading="lazy" alt={s.title} width="150" />
+                  {counter-- > 0 && (
+                    <h4 style={{ padding: "0 10px" }} className="glow-animate">
+                      New
+                    </h4>
+                  )}
                   <h3>{s.title}</h3>
-                  <h4 style={{ padding: "0 10px" }} className="glow-animate">
-                    New
-                  </h4>
                 </li>
               ))
             : (searchSeries || series).map((s, index) => (
@@ -49,8 +52,18 @@ const SeriesCard = ({ Stype }) => {
                   className="series-card-item"
                 >
                   <img src={s.image} loading="lazy" alt={s.title} width="150" />
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <p>{s?.episode?.length}</p>
+                    {counter-- > 0 && (
+                      <h4
+                        style={{ padding: "0 10px" }}
+                        className="glow-animate"
+                      >
+                        New
+                      </h4>
+                    )}
+                  </div>
                   <h3>{s.title}</h3>
-                  <p>{s?.episode?.length}</p>
                 </li>
               ))}
         </ul>

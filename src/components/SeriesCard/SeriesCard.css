@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding: 20px;
-  gap: 20px;
+  gap: 10px;
 }
 .series-card-item {
   width: 260px;
@@ -29,13 +29,14 @@
   text-decoration: none;
   color: white;
   width: 240px;
+  font-size: 18px;
+  margin: 0 0 10px 0;
 }
 .series-card-item p {
+  padding: 5px 15px;
   text-align: center;
   border-radius: 10px;
   width: fit-content;
-
-  padding: 5px 15px;
   background-color: #d25d5d;
   color: yellow;
   text-decoration: none;
@@ -80,6 +81,10 @@
     text-decoration: none;
     color: white;
     width: 140px;
+  }
+  .series-card-item p {
+    padding: 2px 15px;
+    font-size: 14px;
   }
 }
 @media (max-width: 350px) {
