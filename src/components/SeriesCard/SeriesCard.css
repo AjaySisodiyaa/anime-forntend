@@ -2,11 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   padding: 20px;
+  align-items: center;
   gap: 10px;
+  width: fit-content;
+  margin: auto;
 }
 .series-card-item {
   width: 260px;
-  min-height: 350px;
+  min-height: 500px;
   list-style: none;
   direction: none;
   border-radius: 20px;
@@ -15,7 +18,20 @@
   font: 500;
   font-size: 16px;
   background-color: #f5babb2c;
+  overflow: hidden;
+}
+.series-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   padding: 10px;
+}
+.episode-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 40px;
 }
 .series-card-item img {
   width: 250px;
@@ -30,22 +46,31 @@
   text-decoration: none;
   color: white;
   width: 240px;
+  height: 50px;
   font-size: 18px;
   margin: 0 0 10px 0;
+  overflow: hidden;
+}
+.series-card-item h4 {
+  margin: 0;
+  padding: 0;
+}
+.episode-info h5 {
+  margin-left: 10px;
 }
 .series-card-item p {
   padding: 5px 15px;
   text-align: center;
   border-radius: 10px;
-  width: fit-content;
+
   background-color: #d25d5d;
   color: yellow;
   text-decoration: none;
-  margin-left: 10px;
+  margin-left: 0 10px;
   font-weight: 800;
 }
 .series-card-item {
-  padding: 0 0 20px 0;
+  /* padding: 0 0 20px 0; */
 }
 
 @media (max-width: 1400px) {
@@ -66,7 +91,6 @@
 @media (max-width: 700px) {
   .series-card-list {
     display: grid;
-    /* grid-template-columns: 1fr; */
   }
   .series-card-item img {
     width: 150px;
@@ -75,6 +99,7 @@
   .series-card-item {
     width: fit-content;
     padding: 0px;
+    min-height: 400px;
   }
   .series-card-item h3 {
     font-size: 15px;

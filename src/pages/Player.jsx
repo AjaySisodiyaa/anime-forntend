@@ -13,32 +13,33 @@ const Player = () => {
     singleSeries,
     getSingleMovie,
     singleMovie,
-    movies,
-    series,
-    getAllSeries,
-    getAllMovies,
+    getPopularMovies,
+    getPopularSeries,
+    UpdateMovieViews,
+    updateSeriesViews,
+    popularMovies,
+    popularSeries,
   } = useSeriesContext();
   const [episode, setEpisode] = useState(0);
   const { slug } = useParams();
-  console.log("episode", episode);
   useEffect(() => {
     getSingleMovie(slug);
     getSingleSeries(slug);
-    getAllMovies();
-    getAllSeries();
+    getPopularMovies();
+    getPopularSeries();
+    UpdateMovieViews(singleMovie?._id);
+    updateSeriesViews(singleSeries?._id);
 
+    // UpdateSeriesViews(singleSeries?._id);
     window.scrollTo({
       top: 100,
       left: 0,
       behavior: "smooth",
     });
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug, episode]);
-
+  }, [slug, episode, singleMovie?._id, singleSeries?._id]);
   return (
     <div className="Player">
-      {console.log(singleSeries, "singleSeries-------->")}
       <SEO singleSeries={singleSeries} singleMovie={singleMovie} />
       <div className="video-player">
         <div style={{ backgroundColor: "black" }}>
@@ -57,7 +58,7 @@ const Player = () => {
         </div>
 
         <div className="player-info" style={{}}>
-          <h1>{singleSeries?.title || singleMovie?.title}</h1>
+          {/* <h1>{singleSeries?.title || singleMovie?.title}</h1> */}
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             {singleSeries?.episode && <h3>Episode {episode + 1}</h3>}
             <div className="next-previous">
@@ -110,9 +111,9 @@ const Player = () => {
       <div className="Home">
         <div className="series-list">
           <h1>Top Movies</h1>
-          <SeriesCard Stype="movie" movies={movies} />
+          <SeriesCard Stype="movie" movies={popularMovies} />
           <h1>Top Series</h1>
-          <SeriesCard series={series} Stype="series" />
+          <SeriesCard series={popularSeries} Stype="series" />
         </div>
       </div>
     </div>

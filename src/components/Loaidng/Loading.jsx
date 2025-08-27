@@ -5,7 +5,7 @@ import "./Loading.css";
 const Loading = () => {
   return (
     <div className="loading">
-      <img style={{ width: "300px" }} src={lodingIcon} alt="loding..." />
+      <img style={{ width: "100px" }} src={lodingIcon} alt="loding..." />
     </div>
   );
 };

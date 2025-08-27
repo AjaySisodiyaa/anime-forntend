@@ -14,6 +14,8 @@ export const SeriesContextProvider = ({ children }) => {
   const [type, setType] = useState("");
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [popularSeries, setPopularSeries] = useState([]);
 
   // get all series
   const getAllSeries = async () => {
@@ -35,11 +37,9 @@ export const SeriesContextProvider = ({ children }) => {
     try {
       setLoading(true);
 
-      console.log(seriesSearch, "seriesSearch------>");
       const res = await axios.get(
         `https://anime-backend-5ok3.onrender.com/series/${seriesSearch}`
       );
-      console.log(res.data, "res.data");
 
       setSingleSeries(res.data);
       setLoading(false);
@@ -103,9 +103,56 @@ export const SeriesContextProvider = ({ children }) => {
     }
   };
 
+  const updateSeriesViews = async (id) => {
+    try {
+      const res = await axios.post(
+        `https://anime-backend-5ok3.onrender.com/series/${id}/watch`
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const UpdateMovieViews = async (id) => {
+    try {
+      const res = await axios.post(
+        `https://anime-backend-5ok3.onrender.com/movie/${id}/watch`
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getPopularMovies = async () => {
+    try {
+      const res = await axios.get(
+        "https://anime-backend-5ok3.onrender.com/movie/popular"
+      );
+
+      setPopularMovies(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const getPopularSeries = async () => {
+    try {
+      const res = await axios.get(
+        "https://anime-backend-5ok3.onrender.com/series/popular"
+      );
+
+      setPopularSeries(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <SeriesContext.Provider
       value={{
+        getPopularSeries,
+        getPopularMovies,
+        UpdateMovieViews,
+        updateSeriesViews,
+        popularMovies,
+        popularSeries,
         series,
         getAllSeries,
         getSingleSeries,

@@ -6,20 +6,21 @@ import { useEffect } from "react";
 
 const Home = () => {
   const {
-    movies,
-    series,
-    getAllSeries,
-    getAllMovies,
     query,
     setQuery,
     handleSearch,
+    getPopularMovies,
+    getPopularSeries,
+    popularMovies,
+    popularSeries,
   } = useSeriesContext();
 
   useEffect(() => {
-    getAllMovies();
-    getAllSeries();
+    getPopularMovies();
+    getPopularSeries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   return (
     <div className="Home">
       <div className="series-list">
@@ -39,10 +40,10 @@ const Home = () => {
           </button>
         </form>
         <h1>Popular Movies</h1>
-        <SeriesCard movies={movies} Stype="movie" />
+        <SeriesCard movies={popularMovies} Stype="movie" />
         <AdsterraBanner />
         <h1>Popular Series</h1>
-        <SeriesCard series={series} Stype="series" />
+        <SeriesCard series={popularSeries} Stype="series" />
       </div>
     </div>
   );
