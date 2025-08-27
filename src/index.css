@@ -4,7 +4,7 @@ body {
   padding: 0;
   height: 100%;
   overflow-x: hidden; /* stop horizontal scroll */
-  overscroll-behavior: none; /* prevent bounce/white space */
+  /* overscroll-behavior: none;  */
 }
 
 body {

@@ -2,9 +2,20 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useSeriesContext } from "../../context/seriesContext";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const { query, setQuery, handleSearch } = useSeriesContext();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const onGoBack = () => {
+    if (location.key !== "default") {
+      navigate(-1);
+    } else {
+      navigate("/", { replace: true });
+    }
+  };
 
   return (
     <div className="Navbar">
@@ -75,10 +86,7 @@ const Navbar = () => {
         </form>
       </div>
 
-      <div
-        onClick={() => window.location.replace("/")}
-        className="logo-container"
-      >
+      <div onClick={() => onGoBack()} className="logo-container">
         <img src="/logo.png" alt="" />
         <h1 className="glow-animate">Majelo</h1>
       </div>

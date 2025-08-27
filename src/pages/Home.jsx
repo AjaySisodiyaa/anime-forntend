@@ -14,7 +14,6 @@ const Home = () => {
     getPopularSeries,
     popularMovies,
     popularSeries,
-    loading,
   } = useSeriesContext();
 
   useEffect(() => {
@@ -23,9 +22,7 @@ const Home = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return loading ? (
-    <Loading />
-  ) : (
+  return (
     <div className="Home">
       <div className="series-list">
         <form className="mobile-search desk-hide" onSubmit={handleSearch}>
@@ -43,6 +40,7 @@ const Home = () => {
             Search
           </button>
         </form>
+
         <h1>Popular Movies</h1>
         <SeriesCard movies={popularMovies} Stype="movie" />
         <AdsterraBanner />

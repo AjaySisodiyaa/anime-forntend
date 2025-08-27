@@ -25,12 +25,8 @@ const SeriesCard = ({ Stype, movies, series }) => {
                   alt={s.title || s?.movieId?.title}
                   width="150"
                 />
-                <div style={{ display: "flex", alignItems: "center" }}>
-                  {s.movieId?._id && (
-                    <h4 style={{ padding: "0 10px" }} className="glow-animate">
-                      New
-                    </h4>
-                  )}
+                <div className="episode-info">
+                  {s.movieId?._id && <h4 className="glow-animate">New</h4>}
                   <h5 style={{ color: "yellow" }}>
                     {s?.movieId?.releaseDate.slice(0, 4) ||
                       s?.releaseDate.slice(0, 4)}
@@ -55,21 +51,16 @@ const SeriesCard = ({ Stype, movies, series }) => {
                   alt={s.title || s?.seriesId?.title}
                   width="150"
                 />
-                <div className="series-info">
-                  <div className="episode-info">
-                    <p>{s?.episode?.length || s?.seriesId?.episode?.length}</p>
-                    <h5 style={{ color: "yellow" }}>
-                      {s?.seriesId?.releaseDate?.slice(0, 4) ||
-                        s?.releaseDate?.slice(0, 4)}
-                    </h5>
-                  </div>
-                  {counter-- > 0 && (
-                    <h4 style={{ padding: "0 10px" }} className="glow-animate">
-                      New
-                    </h4>
-                  )}
-                  <h3>{s.title || s?.seriesId?.title}</h3>
+
+                <div className="episode-info">
+                  <p>{s?.episode?.length || s?.seriesId?.episode?.length}</p>
+                  <h5 style={{ color: "yellow" }}>
+                    {s?.seriesId?.releaseDate?.slice(0, 4) ||
+                      s?.releaseDate?.slice(0, 4)}
+                  </h5>
+                  {counter-- > 0 && <h4 className="glow-animate">New</h4>}
                 </div>
+                <h3>{s.title || s?.seriesId?.title}</h3>
               </li>
             ))}
       </ul>

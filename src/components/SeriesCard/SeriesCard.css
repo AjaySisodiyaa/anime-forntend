@@ -23,14 +23,16 @@
 .series-info {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 10px;
   padding: 10px;
 }
 .episode-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
   height: 40px;
 }
 .series-card-item img {
@@ -50,14 +52,13 @@
   font-size: 18px;
   margin: 0 0 10px 0;
   overflow: hidden;
+  text-align: center;
 }
 .series-card-item h4 {
   margin: 0;
   padding: 0;
 }
-.episode-info h5 {
-  margin-left: 10px;
-}
+
 .series-card-item p {
   padding: 5px 15px;
   text-align: center;
@@ -91,12 +92,11 @@
   }
   .series-card-item img {
     width: 150px;
-    height: 300px;
+    height: 200px;
   }
   .series-card-item {
     width: fit-content;
-    padding: 0px;
-    min-height: 400px;
+    min-height: 270px;
   }
   .series-card-item h3 {
     font-size: 15px;
@@ -104,10 +104,17 @@
     text-decoration: none;
     color: white;
     width: 140px;
+    text-align: center;
   }
   .series-card-item p {
     padding: 2px 15px;
     font-size: 14px;
+  }
+  .episode-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
   }
 }
 @media (max-width: 350px) {
