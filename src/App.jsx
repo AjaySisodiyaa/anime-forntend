@@ -2,23 +2,23 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Player from "./pages/Player";
-import { useSeriesContext } from "./context/seriesContext";
+
 import Navbar from "./components/Navbar/Navbar";
-import ScrollToTop from "./helpers/ScrollToTop";
+// import ScrollToTop from "./helpers/ScrollToTop";
 import Series from "./pages/Series";
 import Movie from "./pages/Movie";
 import { HeadProvider } from "react-head";
 import Search from "./pages/Search";
-import Loading from "./components/Loaidng/Loading";
+// import Loading from "./components/Loaidng/Loading";
 
 function App() {
-  const { loading } = useSeriesContext();
+  // const { loading } = useSeriesContext();
   return (
     <div className="App">
       <HeadProvider>
-        <ScrollToTop />
+        {/* <ScrollToTop /> */}
         <Navbar />
-        {loading && <Loading />}
+        {/* {loading && <Loading />} */}
 
         <div className="pages">
           <Routes>

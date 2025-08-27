@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 
 import SeriesCard from "../components/SeriesCard/SeriesCard";
@@ -9,6 +9,7 @@ import Loading from "../components/Loaidng/Loading";
 
 const Movie = () => {
   const { movies, getAllMovies, loading } = useSeriesContext();
+  const [page, setPage] = useState(1);
   useEffect(() => {
     getAllMovies();
 
@@ -18,14 +19,23 @@ const Movie = () => {
   useEffect(() => {
     setType("movie");
   }, [setType]);
-  return loading ? (
-    <Loading />
-  ) : (
+
+  const handlepage = () => {
+    setPage(page + 1);
+    getAllMovies(page + 1);
+  };
+  return (
     <div className="movie">
       <div className="movie-container">
-        <h1>Movie List</h1>
+        <div className="loadmore-container">
+          <button onClick={handlepage} className="loadmore">
+            Load More
+          </button>
+          <h1>Movie List</h1>
+        </div>
         <div className="movie-list">
           <SeriesCard Stype="movie" movies={movies} />
+
           <AdsterraBanner />
         </div>
       </div>

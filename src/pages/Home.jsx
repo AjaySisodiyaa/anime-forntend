@@ -14,11 +14,17 @@ const Home = () => {
     getPopularSeries,
     popularMovies,
     popularSeries,
+    getAllMovies,
+    getAllSeries,
+    movies,
+    series,
   } = useSeriesContext();
 
   useEffect(() => {
     getPopularMovies();
     getPopularSeries();
+    getAllMovies();
+    getAllSeries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -40,12 +46,42 @@ const Home = () => {
             Search
           </button>
         </form>
-
+        {/* <iframe
+          class="metaframe rptss"
+          src="https://fullfreeimage.com/?v=WmeE2f5LA"
+          frameborder="0"
+          scrolling="no"
+          allow="autoplay; encrypted-media"
+          allowfullscreen=""
+        ></iframe> */}
+        <h1>Resent Movies</h1>
+        <SeriesCard movies={movies?.slice(0, 10)} Stype="movie" />
+        <div className="loadmore-container">
+          <button
+            onClick={() => (window.location.href = "/movies")}
+            className="loadmore"
+          >
+            All Movies
+          </button>
+        </div>
+        <AdsterraBanner />
+        <h1>Resend Series</h1>
+        <SeriesCard series={series?.slice(0, 10)} Stype="series" />
+        <div className="loadmore-container">
+          <button
+            onClick={() => (window.location.href = "/movies")}
+            className="loadmore"
+          >
+            All Movies
+          </button>
+        </div>
+        <AdsterraBanner />
         <h1>Popular Movies</h1>
-        <SeriesCard movies={popularMovies} Stype="movie" />
+        <SeriesCard movies={popularMovies?.slice(0, 10)} Stype="movie" />
         <AdsterraBanner />
         <h1>Popular Series</h1>
-        <SeriesCard series={popularSeries} Stype="series" />
+        <SeriesCard series={popularSeries?.slice(0, 10)} Stype="series" />
+        <AdsterraBanner />
       </div>
     </div>
   );

@@ -11,3 +11,17 @@
 
   align-items: center;
 }
+.loadmore-container {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.loadmore {
+  background-color: #8f70e2;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid white;
+}
