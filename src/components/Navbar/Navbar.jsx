@@ -88,7 +88,7 @@ const Navbar = () => {
 
       <div onClick={() => onGoBack()} className="logo-container">
         <img src="/logo.png" alt="" />
-        <h1 className="glow-animate">Majelo</h1>
+        <h1 className="glow-animate">Movista</h1>
       </div>
     </div>
   );

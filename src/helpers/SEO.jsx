@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet";
 
 function SEO({ singleSeries, singleMovie }) {
-  const title = (singleSeries?.title || singleMovie?.title) + " | Majelo";
+  const title = (singleSeries?.title || singleMovie?.title) + " | Movista";
   const description =
     singleSeries?.description ||
     singleMovie?.description ||
-    "Watch movies and series on Majelo.";
+    "Watch movies and series on Movista.";
   const keywords =
     singleSeries?.tags?.join(",") || singleMovie?.tags?.join(",");
 
