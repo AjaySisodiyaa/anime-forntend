@@ -17,6 +17,8 @@ export const SeriesContextProvider = ({ children }) => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [popularSeries, setPopularSeries] = useState([]);
 
+  // const [page, setPage] = useState(1);
+
   // get all series
   const getAllSeries = async (page = 1, limit = 10) => {
     try {
@@ -28,7 +30,7 @@ export const SeriesContextProvider = ({ children }) => {
           limit
       );
       const data = res.data;
-      setSeries((prev) => [...data, ...prev]);
+      setSeries(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -66,7 +68,7 @@ export const SeriesContextProvider = ({ children }) => {
           limit
       );
       const data = res.data;
-      setMovies((prev) => [...data, ...prev]);
+      setMovies(data);
       setLoading(false);
     } catch (error) {
       setLoading(false);

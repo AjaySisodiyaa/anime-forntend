@@ -14,7 +14,7 @@
 .loadmore-container {
   display: flex;
   height: 50px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 30px;
 }

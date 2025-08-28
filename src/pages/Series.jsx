@@ -12,7 +12,11 @@ const Series = () => {
     getAllSeries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const handlepage = () => {
+  const handleprev = () => {
+    setPage(page - 1);
+    getAllSeries(page - 1);
+  };
+  const handlenext = () => {
     setPage(page + 1);
     getAllSeries(page + 1);
   };
@@ -22,10 +26,26 @@ const Series = () => {
     <div className="series">
       <div className="Home">
         <div className="loadmore-container">
-          <button onClick={handlepage} className="loadmore">
-            Load More
-          </button>
           <h1>Series List</h1>
+          <button
+            onClick={() => {
+              setPage(1);
+              getAllSeries();
+            }}
+            className="loadmore"
+          >
+            1
+          </button>
+          {page > 1 && (
+            <button onClick={handleprev} className="loadmore">
+              Prev
+            </button>
+          )}
+          {series.length > 0 && (
+            <button onClick={handlenext} className="loadmore">
+              Next
+            </button>
+          )}
         </div>
         <div className="series-list">
           <SeriesCard Stype="series" series={series} />
