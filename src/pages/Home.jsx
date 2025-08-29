@@ -75,13 +75,12 @@ const Home = () => {
             All Movies
           </button>
         </div>
-        <AdsterraBanner />
+
         <h1>Popular Movies</h1>
         <SeriesCard movies={popularMovies?.slice(0, 10)} Stype="movie" />
-        <AdsterraBanner />
+
         <h1>Popular Series</h1>
         <SeriesCard series={popularSeries?.slice(0, 10)} Stype="series" />
-        <AdsterraBanner />
       </div>
     </div>
   );

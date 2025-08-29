@@ -36,8 +36,8 @@ const AdsterraBanner = () => {
         justifyContent: "center",
         width: "100vw",
         height: "60px",
-        overflowX: "scroll",
-        background: "#1a2a80",
+        overflowX: "hidden",
+        objectFit: "contain",
         padding: "0px",
         margin: "0px",
       }}
