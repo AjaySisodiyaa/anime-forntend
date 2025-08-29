@@ -19,9 +19,12 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <Link className="mobiel-nav-feed glow-animate" to="/feed">
+      <div
+        className="mobiel-nav-feed glow-animate"
+        onClick={() => window.location.replace("/feed")}
+      >
         Feed
-      </Link>
+      </div>
       <div
         onClick={() =>
           document.querySelector(".mobiel-links").classList.toggle("hide")
@@ -65,9 +68,12 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="links">
-        <Link className="nav-link glow-animate" to="/feed">
+        <div
+          className="nav-link glow-animate"
+          onClick={() => window.location.replace("/feed")}
+        >
           Feed
-        </Link>
+        </div>
         <Link className="nav-link" to="/">
           Home
         </Link>
