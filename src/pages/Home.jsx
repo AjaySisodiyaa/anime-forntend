@@ -4,6 +4,7 @@ import AdsterraBanner from "../components/Adsterra/AdsterraBanner";
 import { useSeriesContext } from "../context/seriesContext";
 import { useEffect } from "react";
 import Loading from "../components/Loaidng/Loading";
+import VideoFeed from "../components/VideoFeed/VideoFeed";
 
 const Home = () => {
   const {
@@ -46,14 +47,6 @@ const Home = () => {
             Search
           </button>
         </form>
-        {/* <iframe
-          class="metaframe rptss"
-          src="https://fullfreeimage.com/?v=WmeE2f5LA"
-          frameborder="0"
-          scrolling="no"
-          allow="autoplay; encrypted-media"
-          allowfullscreen=""
-        ></iframe> */}
         <h1>Resent Movies</h1>
         <SeriesCard movies={movies?.slice(0, 10)} Stype="movie" />
         <div className="loadmore-container">

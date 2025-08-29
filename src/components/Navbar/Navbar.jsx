@@ -19,6 +19,9 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
+      <Link className="mobiel-nav-feed" to="/feed">
+        Feed
+      </Link>
       <div
         onClick={() =>
           document.querySelector(".mobiel-links").classList.toggle("hide")
@@ -50,6 +53,7 @@ const Navbar = () => {
             Search
           </button>
         </form>
+
         <Link className="mobiel-nav-link" to="/">
           Home
         </Link>
@@ -61,6 +65,9 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="links">
+        <Link className="nav-link" to="/feed">
+          Feed
+        </Link>
         <Link className="nav-link" to="/">
           Home
         </Link>

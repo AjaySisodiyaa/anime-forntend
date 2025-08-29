@@ -78,6 +78,9 @@
 .hamburger {
   display: none;
 }
+.mobiel-nav-feed {
+  display: none;
+}
 @media (max-width: 800px) {
   .Navbar {
     height: 40px;
@@ -157,5 +160,10 @@
   }
   .hide {
     display: none;
+  }
+  .mobiel-nav-feed {
+    display: flex;
+    margin: auto 0;
+    color: yellow;
   }
 }

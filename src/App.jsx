@@ -11,6 +11,7 @@ import { HeadProvider } from "react-head";
 import Search from "./pages/Search";
 import Loading from "./components/Loaidng/Loading";
 import { useSeriesContext } from "./context/seriesContext";
+import Feed from "./pages/Feed";
 
 function App() {
   const { loading } = useSeriesContext();
@@ -29,6 +30,7 @@ function App() {
             <Route path="/movies" element={<Movie />} />
 
             <Route path="/search" element={<Search />} />
+            <Route path="/feed" element={<Feed />} />
           </Routes>
         </div>
       </HeadProvider>
