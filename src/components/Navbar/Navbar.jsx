@@ -68,15 +68,15 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="links">
-        <div
+        {/* <div
           className="nav-link glow-animate"
           onClick={() => window.location.replace("/feed")}
         >
           Feed
-        </div>
-        {/* <Link className="nav-link" to="/">
+        </div> */}
+        <Link className="nav-link" to="/">
           Home
-        </Link> */}
+        </Link>
         <Link className="nav-link" to="/series">
           Series
         </Link>
