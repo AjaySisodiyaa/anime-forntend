@@ -94,17 +94,18 @@ const Player = () => {
       </div>
 
       <div className="episode-list">
-        {singleSeries?.episode?.map((e, index) => (
-          <div key={index}>
-            <button
-              onClick={() => {
-                setEpisode(index);
-              }}
-            >
-              Episode {index + 1}
-            </button>
-          </div>
-        ))}
+        {singleSeries?.episode?.length > 1 &&
+          singleSeries?.episode?.map((e, index) => (
+            <div key={index}>
+              <button
+                onClick={() => {
+                  setEpisode(index);
+                }}
+              >
+                Episode {index + 1}
+              </button>
+            </div>
+          ))}
       </div>
       <AdsterraBanner />
       <div className="poster-container">
