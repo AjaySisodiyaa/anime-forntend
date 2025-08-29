@@ -30,7 +30,7 @@ function App() {
             <Route path="/movies" element={<Movie />} />
 
             <Route path="/search" element={<Search />} />
-            <Route path="/feed" element={<Feed />} />
+            {/* <Route path="/feed" element={<Feed />} /> */}
           </Routes>
         </div>
       </HeadProvider>
