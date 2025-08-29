@@ -20,7 +20,7 @@ export const SeriesContextProvider = ({ children }) => {
   // const [page, setPage] = useState(1);
 
   // get all series
-  const getAllSeries = async (page = 1, limit = 10) => {
+  const getAllSeries = async (page = 1, limit = 6) => {
     try {
       setLoading(true);
       const res = await axios.get(
@@ -57,7 +57,7 @@ export const SeriesContextProvider = ({ children }) => {
   };
 
   // get all movies
-  const getAllMovies = async (page = 1, limit = 10) => {
+  const getAllMovies = async (page = 1, limit = 6) => {
     try {
       setLoading(true);
 
@@ -153,12 +153,12 @@ export const SeriesContextProvider = ({ children }) => {
       console.error(error);
     }
   };
-  const getPopularSeries = async () => {
+  const getPopularSeries = async (limit = 6) => {
     try {
       setLoading(true);
 
       const res = await axios.get(
-        "https://anime-backend-5ok3.onrender.com/series/popular"
+        "https://anime-backend-5ok3.onrender.com/series/popular?limit=" + limit
       );
 
       setPopularSeries(res.data);
