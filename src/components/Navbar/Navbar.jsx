@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <Link className="mobiel-nav-feed" to="/feed">
+      <Link className="mobiel-nav-feed glow-animate" to="/feed">
         Feed
       </Link>
       <div
@@ -65,7 +65,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="links">
-        <Link className="nav-link" to="/feed">
+        <Link className="nav-link glow-animate" to="/feed">
           Feed
         </Link>
         <Link className="nav-link" to="/">
