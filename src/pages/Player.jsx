@@ -42,7 +42,10 @@ const Player = () => {
     <div className="Player">
       <SEO singleSeries={singleSeries} singleMovie={singleMovie} />
       <div className="video-player">
-        <div style={{ backgroundColor: "black" }}>
+        <div
+          className="video-crop"
+          style={{ backgroundColor: "black", overflow: "hidden" }}
+        >
           <iframe
             src={
               singleSeries?.episode && singleSeries.episode[episode]
@@ -54,6 +57,9 @@ const Player = () => {
             frameborder="0"
             allowfullscreen=""
             title="episode"
+            style={{ overflow: "hidden" }}
+            scrolling="no"
+            allow="autoplay; encrypted-media"
           ></iframe>
         </div>
 
