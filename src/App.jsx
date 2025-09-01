@@ -20,7 +20,7 @@ function App() {
       <HeadProvider>
         <ScrollToTop />
         <Navbar />
-        {loading && <Loading />}
+        {/* {loading && <Loading />} */}
 
         <div className="pages">
           <Routes>
